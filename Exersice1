@@ -1,0 +1,46 @@
+
+
+var
+
+    N: integer; {количество чисел}
+
+ 
+ a: integer; {очередное число}
+    s: integer; {сумма двух последних цифр}
+    d: array [0..18] of integer; {подсчёт сумм}
+    mn: integer; {максимальное количество сумм}
+    imn: integer; {самая частая сумма}
+    i: integer;
+begin
+
+    for i:=0 to 18 do d[i]:=0;
+
+    readln(N);
+
+    for i:=1 to N do begin
+
+        readln(a);
+
+        s := a mod 10 + a div 10 mod 10;
+
+        d[s] := d[s]+1;
+
+    end;
+
+    mn := N+1;
+
+    for i:=0 to 18 do begin
+
+        if (d[i]>0) and (d[i] < mn) then begin
+
+            mn := d[i];
+
+            imn := i;
+
+        
+
+    end;
+
+    writeln(imn)
+
+end.
