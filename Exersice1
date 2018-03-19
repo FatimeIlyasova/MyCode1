@@ -1,46 +1,30 @@
+#include <iostream>
+using namespace std;
 
-
-var
-
-    N: integer; {количество чисел}
-
- 
- a: integer; {очередное число}
-    s: integer; {сумма двух последних цифр}
-    d: array [0..18] of integer; {подсчёт сумм}
-    mn: integer; {максимальное количество сумм}
-    imn: integer; {самая частая сумма}
-    i: integer;
-begin
-
-    for i:=0 to 18 do d[i]:=0;
-
-    readln(N);
-
-    for i:=1 to N do begin
-
-        readln(a);
-
-        s := a mod 10 + a div 10 mod 10;
-
-        d[s] := d[s]+1;
-
-    end;
-
-    mn := N+1;
-
-    for i:=0 to 18 do begin
-
-        if (d[i]>0) and (d[i] < mn) then begin
-
-            mn := d[i];
-
-            imn := i;
-
-        
-
-    end;
-
-    writeln(imn)
-
-end.
+int main()
+{
+ int N; //{количество чисел}
+ int a;// {очередное число}
+ int s; //{сумма двух последних цифр}
+ int d[19]; //{подсчёт сумм}
+ int mn;// {максимальное количество сумм}
+ int imn; //{самая частая сумма}
+ int i;
+    for (i=0; i<19;i++)
+    d[i]=0;
+   cin>>N;
+    for (i=1; i<=N; i++)
+    {
+    cin>>a;
+    s= a%10 + a/10%10;
+    d[s]= d[s]+1;
+    }
+    mn= N+1;
+    for (i=0;i<19;i++)
+    if ((d[i]>0)&&(d[i]<mn))
+        {
+            mn= d[i];
+            imn= i;
+        }
+   cout<<imn; 
+}
